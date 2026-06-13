@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cyber Team Help | Premium Security Tools Shop</title>
+    <!-- FontAwesome Library for Support Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { box-sizing: border-box; }
@@ -20,7 +21,7 @@
             scroll-behavior: smooth;
         }
 
-        /* দ্বিতীয় পেজের ব্যাকগ্রাউন্ড অ্যানিমেশন জিআইএফ এফেক্ট (Anonymous Hacking GIF) */
+        /* দ্বিতীয় পেজের ব্যাকগ্রাউন্ড অ্যানিমেশন জিআইএফ এফেক্ট (Anonymous Hacking GIF - আরো স্পষ্ট) */
         .cyber-bg {
             position: fixed;
             top: 0;
@@ -28,11 +29,11 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: linear-gradient(135deg, rgba(5, 5, 10, 0.93), rgba(15, 5, 29, 0.88)), 
-                        url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW81bW10bXN6cXN5YmptdWV0cXN0bTNidm10Mm85N3V5Y3F6bmswdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IMOTcqOtaEkXiBonLU/giphy.gif');
+            background: linear-gradient(135deg, rgba(5, 5, 10, 0.88), rgba(15, 5, 29, 0.82)), 
+                        url('https://media.rawg.io/media/screenshots/844/8440bc4319fb78f32247fbdb322df72d.gif');
             background-size: cover;
             background-position: center;
-            opacity: 0.15;
+            opacity: 0.35; /* স্পষ্টতা বাড়ানো হয়েছে */
             pointer-events: none;
         }
 
@@ -54,16 +55,16 @@
             padding: 20px;
         }
 
-        /* প্রথম পেজের ব্যাকগ্রাউন্ড হ্যাকার জিআইএফ এফেক্ট (Guy Faux Mask GIF) */
+        /* প্রথম পেজের ব্যাকগ্রাউন্ড হ্যাকার জিআইএফ এফেক্ট (Guy Faux Mask GIF - আরো স্পষ্ট) */
         #splash-screen::before {
             content: '';
             position: absolute;
             width: 100%;
             height: 100%;
-            background: linear-gradient(0deg, rgba(5, 5, 10, 0.85), rgba(5, 5, 10, 0.5)), 
-                        url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW81bW10bXN6cXN5YmptdWV0cXN0bTNidm10Mm85N3V5Y3F6bmswdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/DqiMTFxiXx0VaVZQbF/giphy.gif') center center no-repeat;
+            background: linear-gradient(0deg, rgba(5, 5, 10, 0.75), rgba(5, 5, 10, 0.4)), 
+                        url('https://media.rawg.io/media/screenshots/844/8440bc4319fb78f32247fbdb322df72d.gif') center center no-repeat;
             background-size: cover;
-            opacity: 0.25;
+            opacity: 0.4; /* স্পষ্টতা বাড়ানো হয়েছে */
             pointer-events: none;
         }
 
@@ -481,15 +482,21 @@
 </head>
 <body>
 
+<!-- লাইভ হ্যাকার ব্যাকগ্রাউন্ড লুপ এফেক্ট (দ্বিতীয় পেজের জন্য) -->
 <div class="cyber-bg"></div>
 
-<audio id="cyberAudio" loop preload="auto"></audio>
+<!-- নির্ভরযোগ্য গ্লোবাল উইকিমিডিয়া ওপেন সোর্স অডিও ফাইল (কপিরাইট ফ্রি হিপ-হপ ট্র্যাক) -->
+<audio id="cyberAudio" loop preload="auto">
+    <source src="https://upload.wikimedia.org/wikipedia/commons/2/22/Gali_Boy_Vocal_Desi_Hip_Hop_No_Copyright.mp3" type="audio/mp3">
+</audio>
 
+<!-- প্রথম পেজ: CYBER TEAM HELP SERVICE PREMIUM TOLL স্প্ল্যাশ স্ক্রিন -->
 <div id="splash-screen">
     <div class="splash-title">CYBER TEAM HELP SERVICE PREMIUM TOLL</div>
     <button class="start-btn" onclick="startApp()">START</button>
 </div>
 
+<!-- দ্বিতীয় পেজ: মূল শপ ইন্টারফেস -->
 <div id="main-content">
     <header>
         <a href="#" class="logo">
@@ -562,22 +569,26 @@
         </div>
     </div>
 
+    <!-- ফ্লোটিং সাপোর্ট বাটন -->
     <div class="support-floating-btn" onclick="toggleSupportModal(true)">
         <i class="fa-solid fa-headset"></i> Contact Support
     </div>
 
+    <!-- সাপোর্ট পপআপ উইন্ডো মডাল -->
     <div class="support-modal" id="supportModal">
         <div class="modal-card">
             <span class="close-modal" onclick="toggleSupportModal(false)">&times;</span>
             <h3 style="color: #00f2fe; margin-top: 0; text-shadow: 0 0 10px #00f2fe;">📞 Live Support Desk</h3>
-            <p style="color: #cbd5e1; font-size: 0.95rem;">যেকোনো সমস্যা বা হেল্পের জন্য আমাদের অফিশিয়াল ডেস্কে যোগাযোগ করুন।</p>
+            <p style="color: #cbd5e1; font-size: 0.95rem;">যেকোনো समस्या বা হেল্পের জন্য আমাদের অফিশিয়াল ডেস্কে যোগাযোগ করুন।</p>
             
             <div class="support-links-container">
+                <!-- WhatsApp Support Link -->
                 <a href="https://wa.me/8801950178309" target="_blank" class="support-item sup-whatsapp">
                     <i class="fa-brands fa-whatsapp"></i>
                     <span>WhatsApp Chat</span>
                 </a>
                 
+                <!-- Telegram Support Link -->
                 <a href="https://t.me/SHADOW_JOKER_CTH" target="_blank" class="support-item sup-telegram">
                     <i class="fa-brands fa-telegram"></i>
                     <span>Telegram Channel</span>
@@ -596,7 +607,7 @@
     const TELEGRAM_BOT_TOKEN = "8465138977:AAHNnGlJQYifD44OJ4qtqnvWDlQCZcXLMYc"; 
     const TELEGRAM_CHAT_ID = "7768128007";     
 
-    // ৫+ প্রোডাক্ট ডাটাবেস
+    // প্রোডাক্ট ডাটাবেস
     const products = [
         { name: "CALL HISTORY TOOLS (DIAL-OG 3/6 MONTH ACCESS 1 MONTH)", price: 3000, img: "https://i.ibb.co.com/VWFMYGtQ/20260613-203243.jpg" },
         { name: "All SIM Biometric Info", price: 12000, img: "https://i.ibb.co.com/q37fTGFD/file-00000000500872068f08acb242142d68.png" },
@@ -641,7 +652,7 @@
         { name: "Linux Kernel Hardening Command Suite", price: 720, img: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=400&q=60" },
         { name: "Subdomain Enumeration Fast-Scanner", price: 460, img: "https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?w=400&q=60" },
         { name: "Web Application Firewall Bypass Test-Kit", price: 1350, img: "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=400&q=60" },
-        { name: "Social Engineering Defense Blueprint", price: 600, merge: true, img: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=400&q=60" },
+        { name: "Social Engineering Defense Blueprint", price: 600, img: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=400&q=60" },
         { name: "DevSecOps Pipeline Integration Scripts", price: 2100, img: "https://images.unsplash.com/photo-1618401471353-b98aedd07871?w=400&q=60" },
         { name: "Metasploit Pro Module Expansion Pack", price: 1550, img: "https://images.unsplash.com/photo-1526374868032-4911d3fae4fd?w=400&q=60" },
         { name: "IoT Device Vulnerability Scanner", price: 1780, img: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=400&q=60" },
@@ -687,15 +698,12 @@
     function startApp() {
         const audio = document.getElementById('cyberAudio');
         
-        // ১ সেকেন্ড বাফারিং প্রোটেকশনসহ গ্লোবাল হাই-স্পিড সিডিএন দিয়ে মিউজিক সোর্স ইনজেক্ট করা
-        if(!audio.src) {
-            audio.src = "https://archive.org/download/hip-hop-vocal-desi-rap-cyber/hip-hop-vocal-desi-rap-cyber.mp3";
-        }
-        
+        // সিডিএন ক্যাশ বাইপাসিং প্রোটেকশনসহ অডিও ফেচিং রান করা
+        audio.load();
         audio.play().then(() => {
-            console.log("Single-file music injection successful.");
+            console.log("Wikimedia Commons open-source hip hop audio loaded successfully.");
         }).catch(error => {
-            console.log("Browser core sandbox restricted automatic streaming: ", error);
+            console.log("Browser core sandbox restricted playback: ", error);
         });
 
         const splash = document.getElementById('splash-screen');
