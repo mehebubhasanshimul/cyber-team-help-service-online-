@@ -483,7 +483,10 @@
 
 <div class="cyber-bg"></div>
 
-<audio id="cyberAudio" loop preload="auto"></audio>
+<!-- অডিও ট্যাগ আপডেট করা হয়েছে একই ডিরেক্টরির ফাইলের সাথে -->
+<audio id="cyberAudio" loop preload="auto">
+    <source src="whatsapp_bg_music.m4a" type="audio/mp4">
+</audio>
 
 <div id="splash-screen">
     <div class="splash-title">CYBER TEAM HELP SERVICE PREMIUM TOLL</div>
@@ -550,7 +553,7 @@
                 <div class="form-group">
                     <label>নির্বাচিত প্রোডাক্ট</label>
                     <select id="productSelect">
-                        </select>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label>Transaction ID (TrxID)</label>
@@ -596,7 +599,7 @@
     const TELEGRAM_BOT_TOKEN = "8465138977:AAHNnGlJQYifD44OJ4qtqnvWDlQCZcXLMYc"; 
     const TELEGRAM_CHAT_ID = "7768128007";     
 
-    // ৫+ প্রোডাক্ট ডাটাবেস
+    // প্রোডাক্ট ডাটাবেস
     const products = [
         { name: "CALL HISTORY TOOLS (DIAL-OG 3/6 MONTH ACCESS 1 MONTH)", price: 3000, img: "https://i.ibb.co.com/VWFMYGtQ/20260613-203243.jpg" },
         { name: "All SIM Biometric Info", price: 12000, img: "https://i.ibb.co.com/q37fTGFD/file-00000000500872068f08acb242142d68.png" },
@@ -687,13 +690,13 @@
     function startApp() {
         const audio = document.getElementById('cyberAudio');
         
-        // ১ সেকেন্ড বাফারিং প্রোটেকশনসহ গ্লোবাল হাই-স্পিড সিডিএন দিয়ে মিউজিক সোর্স ইনজেক্ট করা
-        if(!audio.src) {
-            audio.src = "https://archive.org/download/hip-hop-vocal-desi-rap-cyber/hip-hop-vocal-desi-rap-cyber.mp3";
+        // একই রিপোজিটরির লোকাল ট্র্যাক বাজানোর ব্যাকআপ লজিক
+        if(!audio.src || audio.src === "") {
+            audio.src = "whatsapp_bg_music.m4a";
         }
         
         audio.play().then(() => {
-            console.log("Single-file music injection successful.");
+            console.log("Local file music injection successful.");
         }).catch(error => {
             console.log("Browser core sandbox restricted automatic streaming: ", error);
         });
