@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cyber Team Help | Premium Security Tools Shop</title>
+    <!-- FontAwesome Library for Support Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { box-sizing: border-box; }
         
@@ -27,8 +29,8 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: linear-gradient(135deg, rgba(5, 5, 10, 0.92), rgba(15, 5, 29, 0.88)), 
-                        url('https://media.giphy.com/media/IMOTcqOtaEkXiBonLU/giphy.gif');
+            background: linear-gradient(135deg, rgba(5, 5, 10, 0.93), rgba(15, 5, 29, 0.88)), 
+                        url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXN6MXRndDZndnNpeXpnb3J5cHZidXN4Z3R5bXNxeXF1bnVvczRwaSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IMOTcqOtaEkXiBonLU/giphy.gif');
             background-size: cover;
             background-position: center;
             opacity: 0.15;
@@ -60,7 +62,7 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(0deg, rgba(5, 5, 10, 0.85), rgba(5, 5, 10, 0.5)), 
-                        url('https://media.giphy.com/media/DqiMTFxiXx0VaVZQbF/giphy.gif') center center no-repeat;
+                        url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW81bW10bXN6cXN5YmptdWV0cXN0bTNidm10Mm85N3V5Y3F6bmswdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/DqiMTFxiXx0VaVZQbF/giphy.gif') center center no-repeat;
             background-size: cover;
             opacity: 0.25;
             pointer-events: none;
@@ -105,7 +107,7 @@
             box-shadow: 0 0 35px rgba(255, 0, 127, 0.8);
         }
 
-        /* দ্বিতীয় পেজ: মূল কন্টেন্ট (শুরুতে হাইড থাকবে) */
+        /* দ্বিতীয় পেজ: মূল কন্টেন্ট */
         #main-content {
             opacity: 0;
             display: none;
@@ -239,7 +241,7 @@
         }
         .vip-banner p { color: #f1f5f9; font-size: 1.1rem; }
 
-        /* সাইবার গ্রিড লেআউট */
+        /* সাইবার গ্রিড લેઆઉટ */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -367,6 +369,97 @@
             outline: none; 
             box-shadow: 0 0 15px rgba(255, 0, 127, 0.4); 
         }
+
+        /* স্টিকি সাপোর্ট ফ্লোটিং বাটন */
+        .support-floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(90deg, #ff007f, #ab47bc);
+            color: #fff;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.6);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 999;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        .support-floating-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px #00f2fe;
+            background: linear-gradient(90deg, #00f2fe, #48dbfb);
+            color: #000;
+        }
+
+        /* সাপোর্ট পপআপ মডাল উইন্ডো */
+        .support-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 5, 10, 0.85);
+            backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            animation: fadeIn 0.4s ease;
+        }
+        .modal-card {
+            background: rgba(20, 20, 30, 0.95);
+            border: 2px solid #00f2fe;
+            box-shadow: 0 0 35px rgba(0, 242, 254, 0.4);
+            border-radius: 20px;
+            padding: 35px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+        }
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: #7f8c8d;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .close-modal:hover { color: #ff007f; }
+        
+        .support-links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 25px;
+        }
+        .support-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .sup-whatsapp { background: rgba(37, 211, 102, 0.15); border-color: #25D366; }
+        .sup-whatsapp:hover { background: #25D366; color: #000; box-shadow: 0 0 20px rgba(37, 211, 102, 0.5); }
+        
+        .sup-telegram { background: rgba(0, 136, 204, 0.15); border-color: #0088cc; }
+        .sup-telegram:hover { background: #0088cc; color: #fff; box-shadow: 0 0 20px rgba(0, 136, 204, 0.5); }
+
+        .support-item i { font-size: 1.6rem; }
         
         .payment-logos { display: flex; gap: 20px; align-items: center; margin-top: 15px; }
         .payment-logos img { height: 40px; object-fit: contain; filter: drop-shadow(0 0 8px rgba(255,255,255,0.2)); }
@@ -392,7 +485,7 @@
 <!-- লাইভ হ্যাকার ব্যাকগ্রাউন্ড লুপ এফেক্ট (দ্বিতীয় পেজের জন্য) -->
 <div class="cyber-bg"></div>
 
-<!-- নতুন ডেসি ওভারলোড দেশি র‍্যাপ মিউজিক ট্র্যাক -->
+<!-- হাইড করা অডিও প্লেয়ার - ডিরেক্ট ইন্টারনেট আর্কাইভ অডিও ক্লাউড লিংক -->
 <audio id="cyberAudio" loop preload="auto">
     <source src="https://archive.org/download/rahulsapkal-desi-overload-503810/rahulsapkal-desi-overload-503810.mp3" type="audio/mp3">
 </audio>
@@ -476,6 +569,34 @@
         </div>
     </div>
 
+    <!-- ফ্লোটিং সাপোর্ট বাটন -->
+    <div class="support-floating-btn" onclick="toggleSupportModal(true)">
+        <i class="fa-solid fa-headset"></i> Contact Support
+    </div>
+
+    <!-- সাপোর্ট পপআপ উইন্ডো মডাল -->
+    <div class="support-modal" id="supportModal">
+        <div class="modal-card">
+            <span class="close-modal" onclick="toggleSupportModal(false)">&times;</span>
+            <h3 style="color: #00f2fe; margin-top: 0; text-shadow: 0 0 10px #00f2fe;">📞 Live Support Desk</h3>
+            <p style="color: #cbd5e1; font-size: 0.95rem;">যেকোনো সমস্যা বা হেল্পের জন্য আমাদের অফিশিয়াল ডেস্কে যোগাযোগ করুন।</p>
+            
+            <div class="support-links-container">
+                <!-- WhatsApp Support Link -->
+                <a href="https://wa.me/8801950178309" target="_blank" class="support-item sup-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>WhatsApp Chat</span>
+                </a>
+                
+                <!-- Telegram Support Link -->
+                <a href="https://t.me/SHADOW_JOKER_CTH" target="_blank" class="support-item sup-telegram">
+                    <i class="fa-brands fa-telegram"></i>
+                    <span>Telegram Channel</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <div class="footer">
         <p>&copy; 2026 Cyber Team Help | All Rights Reserved.</p>
         <p>📩 Email Support: <a href="mailto:cyberteamhelp369@gmail.com">cyberteamhelp369@gmail.com</a></p>
@@ -486,7 +607,7 @@
     const TELEGRAM_BOT_TOKEN = "8465138977:AAHNnGlJQYifD44OJ4qtqnvWDlQCZcXLMYc"; 
     const TELEGRAM_CHAT_ID = "7768128007";     
 
-    // প্রোডাক্ট ডেটাবেস
+    // ৫০+ প্রোডাক্ট ডাটাবেস
     const products = [
         { name: "CALL HISTORY TOOLS (DIAL-OG 3/6 MONTH ACCESS 1 MONTH)", price: 3000, img: "https://i.ibb.co.com/VWFMYGtQ/20260613-203243.jpg" },
         { name: "All SIM Biometric Info", price: 12000, img: "https://i.ibb.co.com/q37fTGFD/file-00000000500872068f08acb242142d68.png" },
@@ -576,7 +697,12 @@
     // START বাটন অ্যাকশন ফাংশন
     function startApp() {
         const audio = document.getElementById('cyberAudio');
-        audio.play().catch(error => console.log("Autoplay dynamic initialization context:", error));
+        
+        // ডাইনামিক ট্রিক: রিলোড করে প্লে করা যাতে ব্রাউজার ক্যাশ ব্লক না করে
+        audio.load();
+        audio.play().catch(error => {
+            console.log("Autoplay was prevented by browser security rules. Retrying...", error);
+        });
 
         const splash = document.getElementById('splash-screen');
         const mainContent = document.getElementById('main-content');
@@ -588,6 +714,12 @@
         setTimeout(() => {
             mainContent.style.opacity = '1';
         }, 50);
+    }
+
+    // সাপোর্ট পপআপ কন্ট্রোল ফাংশন
+    function toggleSupportModal(show) {
+        const modal = document.getElementById('supportModal');
+        modal.style.display = show ? 'flex' : 'none';
     }
 
     function selectProduct(name, price) {
@@ -641,11 +773,11 @@
             alert("সার্ভার ত্রুটি! ব্যাকগ্রাউন্ডে ডাটা পাঠানো যায়নি।");
         })
         .finally(() => {
-            submitBtn.innerText = "কমপ্লিট পার্সেস";
+            submitBtn.innerText = "কমপ্লিট肆章্সেস";
             submitBtn.disabled = false;
         });
     }
 </script>
 
 </body>
-  </html>
+</html>
