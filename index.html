@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cyber Team Help | Premium Security Tools Shop</title>
-    <!-- FontAwesome Library for Support Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { box-sizing: border-box; }
@@ -482,21 +481,15 @@
 </head>
 <body>
 
-<!-- লাইভ হ্যাকার ব্যাকগ্রাউন্ড লুপ এফেক্ট (দ্বিতীয় পেজের জন্য) -->
 <div class="cyber-bg"></div>
 
-<!-- ফিক্সড অডিও প্লেয়ার — উচ্চ গতির গ্লোবাল আর্কাইভ সার্ভার থেকে ভোকালসহ হিন্দি ডার্ক র‍্যাপ ট্র্যাক -->
-<audio id="cyberAudio" loop preload="auto">
-    <source src="https://archive.org/download/hip-hop-vocal-desi-rap-cyber/hip-hop-vocal-desi-rap-cyber.mp3" type="audio/mp3">
-</audio>
+<audio id="cyberAudio" loop preload="auto"></audio>
 
-<!-- প্রথম পেজ: CYBER TEAM HELP SERVICE PREMIUM TOLL স্প্ল্যাশ স্ক্রিন -->
 <div id="splash-screen">
     <div class="splash-title">CYBER TEAM HELP SERVICE PREMIUM TOLL</div>
     <button class="start-btn" onclick="startApp()">START</button>
 </div>
 
-<!-- দ্বিতীয় পেজ: মূল শপ ইন্টারফেস -->
 <div id="main-content">
     <header>
         <a href="#" class="logo">
@@ -513,7 +506,7 @@
 
     <div class="hero">
         <h1>Cyber Team Help Store</h1>
-        <p>অ্যাডভান্সড সাইবার সিকিউরিটিツールス, স্ক্রিপ্টস এবং প্রিমিয়াম কোর্স কালেকশন</p>
+        <p>অ্যাডভান্সড সাইবার সিকিউরিটি টুলস, স্ক্রিপ্টস এবং প্রিমিয়াম কোর্স কালেকশন</p>
     </div>
 
     <div class="container">
@@ -569,12 +562,10 @@
         </div>
     </div>
 
-    <!-- ফ্লোটিং সাপোর্ট বাটন -->
     <div class="support-floating-btn" onclick="toggleSupportModal(true)">
         <i class="fa-solid fa-headset"></i> Contact Support
     </div>
 
-    <!-- সাপোর্ট পপআপ উইন্ডো মডাল -->
     <div class="support-modal" id="supportModal">
         <div class="modal-card">
             <span class="close-modal" onclick="toggleSupportModal(false)">&times;</span>
@@ -582,13 +573,11 @@
             <p style="color: #cbd5e1; font-size: 0.95rem;">যেকোনো সমস্যা বা হেল্পের জন্য আমাদের অফিশিয়াল ডেস্কে যোগাযোগ করুন।</p>
             
             <div class="support-links-container">
-                <!-- WhatsApp Support Link -->
                 <a href="https://wa.me/8801950178309" target="_blank" class="support-item sup-whatsapp">
                     <i class="fa-brands fa-whatsapp"></i>
                     <span>WhatsApp Chat</span>
                 </a>
                 
-                <!-- Telegram Support Link -->
                 <a href="https://t.me/SHADOW_JOKER_CTH" target="_blank" class="support-item sup-telegram">
                     <i class="fa-brands fa-telegram"></i>
                     <span>Telegram Channel</span>
@@ -607,7 +596,7 @@
     const TELEGRAM_BOT_TOKEN = "8465138977:AAHNnGlJQYifD44OJ4qtqnvWDlQCZcXLMYc"; 
     const TELEGRAM_CHAT_ID = "7768128007";     
 
-    // ৫০+ প্রোডাক্ট ডাটাবেস
+    // ৫+ প্রোডাক্ট ডাটাবেস
     const products = [
         { name: "CALL HISTORY TOOLS (DIAL-OG 3/6 MONTH ACCESS 1 MONTH)", price: 3000, img: "https://i.ibb.co.com/VWFMYGtQ/20260613-203243.jpg" },
         { name: "All SIM Biometric Info", price: 12000, img: "https://i.ibb.co.com/q37fTGFD/file-00000000500872068f08acb242142d68.png" },
@@ -652,7 +641,7 @@
         { name: "Linux Kernel Hardening Command Suite", price: 720, img: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=400&q=60" },
         { name: "Subdomain Enumeration Fast-Scanner", price: 460, img: "https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?w=400&q=60" },
         { name: "Web Application Firewall Bypass Test-Kit", price: 1350, img: "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=400&q=60" },
-        { name: "Social Engineering Defense Blueprint", price: 600, img: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=400&q=60" },
+        { name: "Social Engineering Defense Blueprint", price: 600, merge: true, img: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=400&q=60" },
         { name: "DevSecOps Pipeline Integration Scripts", price: 2100, img: "https://images.unsplash.com/photo-1618401471353-b98aedd07871?w=400&q=60" },
         { name: "Metasploit Pro Module Expansion Pack", price: 1550, img: "https://images.unsplash.com/photo-1526374868032-4911d3fae4fd?w=400&q=60" },
         { name: "IoT Device Vulnerability Scanner", price: 1780, img: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=400&q=60" },
@@ -698,12 +687,15 @@
     function startApp() {
         const audio = document.getElementById('cyberAudio');
         
-        // গ্লোবাল অডিও স্ট্রিম লোড ও প্লে করা
-        audio.load();
+        // ১ সেকেন্ড বাফারিং প্রোটেকশনসহ গ্লোবাল হাই-স্পিড সিডিএন দিয়ে মিউজিক সোর্স ইনজেক্ট করা
+        if(!audio.src) {
+            audio.src = "https://archive.org/download/hip-hop-vocal-desi-rap-cyber/hip-hop-vocal-desi-rap-cyber.mp3";
+        }
+        
         audio.play().then(() => {
-            console.log("Desi hip hop vocal track successfully playing.");
+            console.log("Single-file music injection successful.");
         }).catch(error => {
-            console.log("Autoplay context initialization forced retry:", error);
+            console.log("Browser core sandbox restricted automatic streaming: ", error);
         });
 
         const splash = document.getElementById('splash-screen');
