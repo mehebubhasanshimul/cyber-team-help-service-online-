@@ -30,7 +30,7 @@
             height: 100%;
             z-index: -1;
             background: linear-gradient(135deg, rgba(5, 5, 10, 0.93), rgba(15, 5, 29, 0.88)), 
-                        url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXN6MXRndDZndnNpeXpnb3J5cHZidXN4Z3R5bXNxeXF1bnVvczRwaSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IMOTcqOtaEkXiBonLU/giphy.gif');
+                        url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW81bW10bXN6cXN5YmptdWV0cXN0bTNidm10Mm85N3V5Y3F6bmswdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IMOTcqOtaEkXiBonLU/giphy.gif');
             background-size: cover;
             background-position: center;
             opacity: 0.15;
@@ -241,7 +241,7 @@
         }
         .vip-banner p { color: #f1f5f9; font-size: 1.1rem; }
 
-        /* সাইবার গ্রিড લેઆઉટ */
+        /* সাইবার গ্রিড লেআউট */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -323,7 +323,7 @@
             transform: scale(1.02);
         }
 
-        /* গেটওয়ে ফর্ম সেকশন */
+        /* গেটওয়ে ফর্ম সেকশন */
         .checkout-section {
             display: none;
             background: rgba(10, 10, 15, 0.95);
@@ -485,9 +485,9 @@
 <!-- লাইভ হ্যাকার ব্যাকগ্রাউন্ড লুপ এফেক্ট (দ্বিতীয় পেজের জন্য) -->
 <div class="cyber-bg"></div>
 
-<!-- হাইড করা অডিও প্লেয়ার - ডিরেক্ট ইন্টারনেট আর্কাইভ অডিও ক্লাউড লিংক -->
+<!-- ফিক্সড অডিও প্লেয়ার — উচ্চ গতির গ্লোবাল আর্কাইভ সার্ভার থেকে ভোকালসহ হিন্দি ডার্ক র‍্যাপ ট্র্যাক -->
 <audio id="cyberAudio" loop preload="auto">
-    <source src="https://archive.org/download/rahulsapkal-desi-overload-503810/rahulsapkal-desi-overload-503810.mp3" type="audio/mp3">
+    <source src="https://archive.org/download/hip-hop-vocal-desi-rap-cyber/hip-hop-vocal-desi-rap-cyber.mp3" type="audio/mp3">
 </audio>
 
 <!-- প্রথম পেজ: CYBER TEAM HELP SERVICE PREMIUM TOLL স্প্ল্যাশ স্ক্রিন -->
@@ -513,7 +513,7 @@
 
     <div class="hero">
         <h1>Cyber Team Help Store</h1>
-        <p>অ্যাডভান্সড সাইবার সিকিউরিটি টুলস, স্ক্রিপ্টস এবং প্রিমিয়াম কোর্স কালেকশন</p>
+        <p>অ্যাডভান্সড সাইবার সিকিউরিটিツールス, স্ক্রিপ্টস এবং প্রিমিয়াম কোর্স কালেকশন</p>
     </div>
 
     <div class="container">
@@ -698,10 +698,12 @@
     function startApp() {
         const audio = document.getElementById('cyberAudio');
         
-        // ডাইনামিক ট্রিক: রিলোড করে প্লে করা যাতে ব্রাউজার ক্যাশ ব্লক না করে
+        // গ্লোবাল অডিও স্ট্রিম লোড ও প্লে করা
         audio.load();
-        audio.play().catch(error => {
-            console.log("Autoplay was prevented by browser security rules. Retrying...", error);
+        audio.play().then(() => {
+            console.log("Desi hip hop vocal track successfully playing.");
+        }).catch(error => {
+            console.log("Autoplay context initialization forced retry:", error);
         });
 
         const splash = document.getElementById('splash-screen');
@@ -773,7 +775,7 @@
             alert("সার্ভার ত্রুটি! ব্যাকগ্রাউন্ডে ডাটা পাঠানো যায়নি।");
         })
         .finally(() => {
-            submitBtn.innerText = "কমপ্লিট肆章্সেস";
+            submitBtn.innerText = "কমপ্লিট পার্সেস";
             submitBtn.disabled = false;
         });
     }
