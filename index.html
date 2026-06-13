@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Team Help | Premium Security Tools Shop</title>
+    <style>
+        * { box-sizing: border-box; }
+        
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #05050a;
+            color: #f1f5f9;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* দ্বিতীয় পেজের ব্যাকগ্রাউন্ড অ্যানিমেশন জিআইএফ এফেক্ট (Anonymous Hacking GIF) */
+        .cyber-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, rgba(5, 5, 10, 0.92), rgba(15, 5, 29, 0.88)), 
+                        url('https://media.giphy.com/media/IMOTcqOtaEkXiBonLU/giphy.gif');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        /* প্রথম পেজ: এন্ট্রান্স স্প্ল্যাশ স্ক্রিন */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #0c051c 0%, #05050a 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease, visibility 0.8s;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* প্রথম পেজের ব্যাকগ্রাউন্ড হ্যাকার জিআইএফ এফেক্ট (Guy Faux Mask GIF) */
+        #splash-screen::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, rgba(5, 5, 10, 0.85), rgba(5, 5, 10, 0.5)), 
+                        url('https://media.giphy.com/media/DqiMTFxiXx0VaVZQbF/giphy.gif') center center no-repeat;
+            background-size: cover;
+            opacity: 0.25;
+            pointer-events: none;
+        }
+
+        .splash-title {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #00f2fe, #ff007f, #00f2fe);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textFlow 3s linear infinite;
+            filter: drop-shadow(0 0 20px rgba(0, 242, 254, 0.7));
+            margin-bottom: 40px;
+            z-index: 2;
+        }
+
+        .start-btn {
+            padding: 18px 50px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #000;
+            background: linear-gradient(90deg, #00f2fe, #48dbfb);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 25px rgba(0, 242, 254, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .start-btn:hover {
+            transform: scale(1.08);
+            background: linear-gradient(90deg, #ff007f, #ba68c8);
+            color: #fff;
+            box-shadow: 0 0 35px rgba(255, 0, 127, 0.8);
+        }
+
+        /* দ্বিতীয় পেজ: মূল কন্টেন্ট (শুরুতে হাইড থাকবে) */
+        #main-content {
+            opacity: 0;
+            display: none;
+            transition: opacity 1s ease;
+        }
+
+        /* হেডার */
+        header {
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0, 242, 254, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 242, 254, 0.2);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: #00f2fe;
+            margin-left: 10px;
+            letter-spacing: 1.5px;
+            text-shadow: 0 0 10px #00f2fe, 0 0 20px #00f2fe;
+        }
+        
+        .logo svg {
+            width: 32px;
+            height: 32px;
+            fill: #00f2fe;
+            filter: drop-shadow(0 0 8px #00f2fe);
+        }
+        
+        .nav-links a { 
+            text-decoration: none; 
+            color: #c8d6e5; 
+            margin-left: 25px; 
+            font-weight: 600; 
+            transition: 0.3s;
+        }
+        .nav-links a:hover { 
+            color: #48dbfb; 
+            text-shadow: 0 0 10px #48dbfb;
+        }
+        
+        /* হিরো সেকশন */
+        .hero {
+            padding: 90px 5%;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .hero h1 { 
+            font-size: 3.5rem; 
+            margin-bottom: 15px; 
+            font-weight: 900; 
+            background: linear-gradient(90deg, #ff007f, #00f2fe, #ab47bc, #ff007f);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textFlow 4s linear infinite;
+            filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.6));
+        }
+
+        @keyframes textFlow {
+            to { background-position: 200% center; }
+        }
+        
+        .hero p { 
+            font-size: 1.3rem; 
+            color: #00f2fe;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: bold;
+            text-shadow: 0 0 8px rgba(0, 242, 254, 0.4);
+        }
+        
+        .container { width: 90%; max-width: 1200px; margin: 40px auto; }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+            color: #fff;
+            font-weight: 800;
+            text-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff007f, #00f2fe);
+            border-radius: 2px;
+            box-shadow: 0 0 10px #ff007f;
+        }
+
+        /* VIP ব্যানার */
+        .vip-banner {
+            background: linear-gradient(135deg, rgba(20, 10, 35, 0.85), rgba(5, 5, 10, 0.95));
+            backdrop-filter: blur(10px);
+            border: 2px solid #ff007f;
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 50px;
+            box-shadow: 0 0 25px rgba(255, 0, 127, 0.4);
+        }
+        .vip-banner h2 { 
+            color: #ff007f; 
+            margin-top: 0; 
+            font-size: 2rem; 
+            text-shadow: 0 0 15px #ff007f;
+        }
+        .vip-banner p { color: #f1f5f9; font-size: 1.1rem; }
+
+        /* সাইবার গ্রিড লেআউট */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            background: rgba(15, 15, 25, 0.85);
+            backdrop-filter: blur(5px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .border-cyan { border: 1px solid rgba(0, 242, 254, 0.3); box-shadow: 0 4px 15px rgba(0, 242, 254, 0.1); }
+        .border-cyan:hover { border-color: #00f2fe; box-shadow: 0 0 25px rgba(0, 242, 254, 0.4); transform: translateY(-8px); }
+
+        .border-pink { border: 1px solid rgba(255, 0, 127, 0.3); box-shadow: 0 4px 15px rgba(255, 0, 127, 0.1); }
+        .border-pink:hover { border-color: #ff007f; box-shadow: 0 0 25px rgba(255, 0, 127, 0.4); transform: translateY(-8px); }
+
+        .border-purple { border: 1px solid rgba(171, 71, 188, 0.3); box-shadow: 0 4px 15px rgba(171, 71, 188, 0.1); }
+        .border-purple:hover { border-color: #ba68c8; box-shadow: 0 0 25px rgba(171, 71, 188, 0.4); transform: translateY(-8px); }
+
+        .border-green { border: 1px solid rgba(0, 230, 118, 0.3); box-shadow: 0 4px 15px rgba(0, 230, 118, 0.1); }
+        .border-green:hover { border-color: #00e676; box-shadow: 0 0 25px rgba(0, 230, 118, 0.4); transform: translateY(-8px); }
+        
+        .product-card img { 
+            width: 100%; 
+            height: 190px; 
+            object-fit: cover; 
+            background: #101015; 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .product-info { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        
+        .product-info h3 { 
+            font-size: 1.1rem; 
+            margin: 0 0 12px 0; 
+            height: 48px; 
+            overflow: hidden; 
+            color: #fff; 
+            line-height: 1.5; 
+            font-weight: 600; 
+            text-shadow: 0 0 5px rgba(255,255,255,0.2);
+        }
+        
+        .price { 
+            font-size: 1.4rem; 
+            color: #ffea00; 
+            font-weight: 800; 
+            margin-bottom: 20px; 
+            text-shadow: 0 0 10px rgba(255, 234, 0, 0.4);
+        }
+        
+        .buy-btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(90deg, #ff007f, #7b1fa2);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(255, 0, 127, 0.4);
+        }
+        .buy-btn:hover { 
+            background: linear-gradient(90deg, #7b1fa2, #ff007f); 
+            box-shadow: 0 0 25px rgba(255, 0, 127, 0.8);
+            transform: scale(1.02);
+        }
+
+        /* গেটওয়ে ফর্ম সেকশন */
+        .checkout-section {
+            display: none;
+            background: rgba(10, 10, 15, 0.95);
+            border: 1px solid #00f2fe;
+            backdrop-filter: blur(15px);
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 60px;
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.3);
+            animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .payment-box {
+            background: rgba(20, 20, 30, 0.8);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 35px;
+            border-left: 5px solid #ff007f;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.1);
+        }
+        
+        .form-group { margin-bottom: 25px; }
+        .form-group label { display: block; margin-bottom: 10px; font-weight: 600; color: #00f2fe; font-size: 0.95rem; text-shadow: 0 0 5px rgba(0, 242, 254, 0.3); }
+        
+        .form-group input, .form-group select {
+            width: 100%; 
+            padding: 14px; 
+            background: rgba(5, 5, 10, 0.8);
+            border: 1px solid rgba(0, 242, 254, 0.3); 
+            border-radius: 8px; 
+            font-size: 1rem; 
+            color: #fff;
+            transition: 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus { 
+            border-color: #ff007f; 
+            outline: none; 
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.4); 
+        }
+        
+        .payment-logos { display: flex; gap: 20px; align-items: center; margin-top: 15px; }
+        .payment-logos img { height: 40px; object-fit: contain; filter: drop-shadow(0 0 8px rgba(255,255,255,0.2)); }
+        
+        /* ফুটার */
+        .footer { 
+            background: #050508; 
+            color: #7f8c8d; 
+            padding: 50px 5%; 
+            text-align: center; 
+            margin-top: 80px; 
+            font-size: 0.95rem; 
+            border-top: 1px solid rgba(0, 242, 254, 0.2); 
+            box-shadow: 0 -5px 20px rgba(0, 242, 254, 0.05);
+        }
+        .footer a { color: #00f2fe; text-decoration: none; font-weight: 600; text-shadow: 0 0 5px rgba(0,242,254,0.3); }
+        .footer a:hover { text-shadow: 0 0 10px #00f2fe; }
+        .footer p { margin: 10px 0; }
+    </style>
+</head>
+<body>
+
+<!-- লাইভ হ্যাকার ব্যাকগ্রাউন্ড লুপ এফেক্ট (দ্বিতীয় পেজের জন্য) -->
+<div class="cyber-bg"></div>
+
+<!-- নতুন ডেসি ওভারলোড দেশি র‍্যাপ মিউজিক ট্র্যাক -->
+<audio id="cyberAudio" loop preload="auto">
+    <source src="https://archive.org/download/rahulsapkal-desi-overload-503810/rahulsapkal-desi-overload-503810.mp3" type="audio/mp3">
+</audio>
+
+<!-- প্রথম পেজ: CYBER TEAM HELP SERVICE PREMIUM TOLL স্প্ল্যাশ স্ক্রিন -->
+<div id="splash-screen">
+    <div class="splash-title">CYBER TEAM HELP SERVICE PREMIUM TOLL</div>
+    <button class="start-btn" onclick="startApp()">START</button>
+</div>
+
+<!-- দ্বিতীয় পেজ: মূল শপ ইন্টারফেস -->
+<div id="main-content">
+    <header>
+        <a href="#" class="logo">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 15l-4-4 1.41-1.41L11 13.17l5.59-5.59L18 9l-7 7z"/>
+            </svg>
+            <span>CYBER SHOP</span>
+        </a>
+        <nav class="nav-links">
+            <a href="#">Home</a>
+            <a href="#catalog">Catalog</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Cyber Team Help Store</h1>
+        <p>অ্যাডভান্সড সাইবার সিকিউরিটি টুলস, স্ক্রিপ্টস এবং প্রিমিয়াম কোর্স কালেকশন</p>
+    </div>
+
+    <div class="container">
+        
+        <div class="vip-banner">
+            <h2>🔥 Join VIP Secret Hacking Group</h2>
+            <p>লাইফটাইম সাপোর্ট, রেগুলার প্রিমিয়াম টুলস আপডেট এবং প্রাইভেট ক্লাস অ্যাক্সেস।</p>
+            <div style="font-size: 2.8rem; font-weight: 900; margin: 15px 0; color: #ffea00; text-shadow: 0 0 15px #ffea00;">৳ ১,০২০</div>
+            <button class="buy-btn" style="background: linear-gradient(90deg, #ffea00, #ff9100); color: #000; width: 240px; margin: 10px auto; font-weight: 800; box-shadow: 0 0 20px rgba(255, 234, 0, 0.5);" onclick="selectProduct('VIP Secret Group Join', 1020)">Join Group Now</button>
+        </div>
+
+        <h2 class="section-title" id="catalog">প্রিমিয়াম টুলস এবং কোর্স ক্যাটালগ</h2>
+        
+        <div class="products-grid" id="productsContainer"></div>
+
+        <div class="checkout-section" id="checkout">
+            <h2 style="text-align: center; color: #00f2fe; margin-top: 0; margin-bottom: 30px; font-weight: 800; text-shadow: 0 0 15px #00f2fe;">🛒 অর্ডার ও পেমেন্ট গেটওয়ে</h2>
+            
+            <div class="payment-box">
+                <h3 style="margin-top:0; color:#ff007f; font-size: 1.3rem; font-weight: 800; text-shadow: 0 0 10px rgba(255,0,127,0.3);">💰 পেমেন্ট করার নিয়মাবলী:</h3>
+                <p style="color: #cbd5e1;">নিচের যেকোনো একটি নাম্বারে কাঙ্ক্ষিত টাকা <strong>Send Money</strong> করুন। পেমেন্ট সম্পন্ন হলে ফর্মটি পূরণ করুন।</p>
+                <div style="font-size: 1.2rem; line-height: 2.2; color: #f8fafc;">
+                    📱 <strong>বিকাশ (Personal):</strong> <span style="color:#00f2fe; font-weight:bold; letter-spacing: 0.5px; text-shadow: 0 0 10px #00f2fe;">01859877524</span><br>
+                    📱 <strong>নগদ (Personal):</strong> <span style="color:#7f8c8d; font-weight:bold; letter-spacing: 0.5px;">Not Active Now</span>
+                </div>
+                <div class="payment-logos">
+                    <img src="https://www.logo.wine/a/logo/BKash/BKash-bKash-Logo.wine.svg" alt="bKash">
+                    <img src="https://www.logo.wine/a/logo/Nagad/Nagad-Logo.wine.svg" alt="Nagad">
+                </div>
+            </div>
+
+            <form id="orderForm">
+                <div class="form-group">
+                    <label>আপনার নাম</label>
+                    <input type="text" id="name" placeholder="আপনার সম্পূর্ণ নাম লিখুন" required>
+                </div>
+                <div class="form-group">
+                    <label>হোয়াটসঅ্যাপ নম্বর</label>
+                    <input type="text" id="phone" placeholder="01XXXXXXXXX" required>
+                </div>
+                <div class="form-group">
+                    <label>নির্বাচিত প্রোডাক্ট</label>
+                    <select id="productSelect">
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label>Transaction ID (TrxID)</label>
+                    <input type="text" id="trxid" placeholder="টাকা পাঠানোর পর প্রাপ্ত TrxID এখানে দিন" required>
+                </div>
+                
+                <button type="button" id="submitBtn" class="buy-btn" style="font-size:1.2rem; padding:16px; background: linear-gradient(90deg, #00f2fe, #ff007f); box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);" onclick="sendOrder()">কমপ্লিট পার্সেস</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2026 Cyber Team Help | All Rights Reserved.</p>
+        <p>📩 Email Support: <a href="mailto:cyberteamhelp369@gmail.com">cyberteamhelp369@gmail.com</a></p>
+    </div>
+</div>
+
+<script>
+    const TELEGRAM_BOT_TOKEN = "8465138977:AAHNnGlJQYifD44OJ4qtqnvWDlQCZcXLMYc"; 
+    const TELEGRAM_CHAT_ID = "7768128007";     
+
+    // প্রোডাক্ট ডেটাবেস
+    const products = [
+        { name: "CALL HISTORY TOOLS (DIAL-OG 3/6 MONTH ACCESS 1 MONTH)", price: 3000, img: "https://i.ibb.co.com/VWFMYGtQ/20260613-203243.jpg" },
+        { name: "All SIM Biometric Info", price: 12000, img: "https://i.ibb.co.com/q37fTGFD/file-00000000500872068f08acb242142d68.png" },
+        { name: "NUMBER TO NID Verification Tool", price: 1200, img: "https://i.ibb.co.com/3yj8ZVq4/1779270064933.png" },
+        { name: "Imo Account Hacking  Tool", price: 2020, img: "https://i.ibb.co.com/VcMTSbC2/1779269897168.png" },
+        { name: "WhatsApp Account Hacking Tool", price: 2500, img: "https://i.ibb.co.com/9k8SSnwK/1779269835294.png" },
+        { name: "Instagram Account Hacking  Pro", price: 2000, img: "https://i.ibb.co.com/hJ1Cgz31/1779269663751.png" },
+        { name: "Facebook Account Recovery & Hacking Tool", price: 2050, img: "https://i.ibb.co.com/6cVLfmYS/IMG-20260520-152320.png" },
+        { name: "TikTok Account Hacking Tools", price: 1850, img: "https://i.ibb.co.com/ZzQK7683/1779268769019.png" },
+        
+        { name: "VIP Secret Group Access (Lifetime)", price: 1520, img: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=400&q=60" },
+        { name: "Advanced WiFi Jammer Educational Kit", price: 1500, img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&q=60" },
+        { name: "Master Ethical Hacking Complete Course", price: 2020, img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&q=60" },
+        { name: "Automated Web Vulnerability Scanner Pro", price: 1050, img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&q=60" },
+        { name: "Premium Web Penetration Testing Guide", price: 1200, img: "https://images.unsplash.com/photo-1579548122020-b352407418b1?w=400&q=60" },
+        { name: "Linux Termux Network Analyzer Setup", price: 1650, img: "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=400&q=60" },
+        { name: "Python Scripting for Cyber Security Suite", price: 2100, img: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=400&q=60" },
+        { name: "Metasploit Payload Customizer Pro", price: 1450, img: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=400&q=60" },
+        { name: "Nmap Advanced Network Scanning Course", price: 1550, img: "https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=400&q=60" },
+        { name: "Wireshark Deep Packet Inspection Lab", price: 890, img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=60" },
+        { name: "BurpSuite Web Security Testing Masterclass", price: 1800, img: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&q=60" },
+        { name: "SQL Injection Prevention & Audit Tool", price: 1050, img: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=400&q=60" },
+        { name: "XSS Vulnerability Detection Framework", price: 920, img: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=400&q=60" },
+        { name: "BruteForce Resistance Testing Script", price: 790, img: "https://images.unsplash.com/photo-1562813733-b31f71025d54?w=400&q=60" },
+        { name: "Secure Anonymous Proxy Router Configuration", price: 1300, img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?w=400&q=60" },
+        { name: "Zero-Knowledge VPN Protocol Bundle", price: 1650, img: "https://images.unsplash.com/photo-1563986768494-0d2b44f2f2a8?w=400&q=60" },
+        { name: "Cloud Server Security Firewall Setup", price: 1990, img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&q=60" },
+        { name: "ZeroDay Vulnerability Assessment Guide", price: 2500, img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&q=60" },
+        { name: "Automated Log Analyzer & Extractor", price: 680, img: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&q=60" },
+        { name: "API Security Gatekeeper Script v2.1", price: 1050, img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&70" },
+        { name: "Malware Sandbox Simulation Laboratory", price: 2200, img: "https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=400&q=60" },
+        { name: "Password Strength Auditor Enterprise Edition", price: 800, img: "https://images.unsplash.com/photo-1633265486064-086b219351db?w=400&q=60" },
+        { name: "Bug Bounty Automation Toolkit 2026", price: 1750, img: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=400&q=60" },
+        { name: "Docker Container Hardening Checklist", price: 590, img: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=400&q=60" },
+        { name: "Phishing Awareness Simulation Front-end", price: 1250, img: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=400&q=60" },
+        { name: "OSINT Investigator Framework Standard", price: 1400, img: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&q=60" },
+        { name: "Network Traffic Sniffer Console Pro", price: 990, img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=60" },
+        { name: "Active Directory Security Auditor Pack", price: 2350, img: "https://images.unsplash.com/photo-1496065187959-7f07b8353c55?w=400&q=60" },
+        { name: "Wireless Network Defense Shield Script", price: 870, img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=400&q=60" },
+        { name: "Cryptography & Encryption Tools Matrix", price: 1150, img: "https://images.unsplash.com/photo-1568952433726-08924375000c?w=400&q=60" },
+        { name: "Reverse Engineering Fundamentals Course", price: 1600, img: "https://images.unsplash.com/photo-1580894732444-8fecef2601ee?w=400&q=60" },
+        { name: "Linux Kernel Hardening Command Suite", price: 720, img: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=400&q=60" },
+        { name: "Subdomain Enumeration Fast-Scanner", price: 460, img: "https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?w=400&q=60" },
+        { name: "Web Application Firewall Bypass Test-Kit", price: 1350, img: "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=400&q=60" },
+        { name: "Social Engineering Defense Blueprint", price: 600, img: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=400&q=60" },
+        { name: "DevSecOps Pipeline Integration Scripts", price: 2100, img: "https://images.unsplash.com/photo-1618401471353-b98aedd07871?w=400&q=60" },
+        { name: "Metasploit Pro Module Expansion Pack", price: 1550, img: "https://images.unsplash.com/photo-1526374868032-4911d3fae4fd?w=400&q=60" },
+        { name: "IoT Device Vulnerability Scanner", price: 1780, img: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=400&q=60" },
+        { name: "Advanced BurpSuite Extensions Bundle", price: 1220, img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&q=60" },
+        { name: "Digital Forensics Artifacts Recovery Kit", price: 1950, img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&q=60" },
+        { name: "Rootkit Detection Framework for Servers", price: 1420, img: "https://images.unsplash.com/photo-156398676798-93727fb8652e?w=400&q=60" },
+        { name: "SIEM Log Integration Configuration Pack", price: 2400, img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&q=60" },
+        { name: "Network HoneyPot Simulation Shield", price: 830, img: "https://images.unsplash.com/photo-1535223289827-42f1e9919769?w=400&q=60" },
+        { name: "Exploit Development Python Framework", price: 1390, img: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=400&q=60" },
+        { name: "DNS Spoofing Audit & Protection Script", price: 670, img: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=400&q=60" },
+        { name: "Secure Shell (SSH) Hardening Utility", price: 520, img: "https://images.unsplash.com/photo-1544256718-3bcf237f3974?w=400&q=60" },
+        { name: "Malware Reverse Engineering Toolset", price: 2600, img: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?w=400&q=60" },
+        { name: "Red Team Automation Shell Scripts", price: 1850, img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&q=60" },
+        { name: "Blue Team Incident Response Manual", price: 900, img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&q=60" },
+        { name: "Cyber Security Auditing Templates Pro", price: 400, img: "https://images.unsplash.com/photo-1450175946331-bdf5115003a2?w=400&q=60" }
+    ];
+
+    const borderStyles = ["border-cyan", "border-pink", "border-purple", "border-green"];
+    const container = document.getElementById('productsContainer');
+    const select = document.getElementById('productSelect');
+
+    products.forEach((prod, index) => {
+        const selectedBorder = borderStyles[index % borderStyles.length];
+        const card = document.createElement('div');
+        card.className = 'product-card ' + selectedBorder;
+        card.innerHTML = '<img src="' + prod.img + '" alt="' + prod.name + '" loading="lazy">' +
+            '<div class="product-info">' +
+                '<h3>' + prod.name + '</h3>' +
+                '<div>' +
+                    '<div class="price">৳ ' + prod.price.toLocaleString('bn-BD') + '</div>' +
+                    '<button class="buy-btn" onclick="selectProduct(\'' + prod.name + '\', ' + prod.price + ')">Order Now</button>' +
+                '</div>' +
+            '</div>';
+        container.appendChild(card);
+
+        const opt = document.createElement('option');
+        opt.value = prod.name + " - ৳" + prod.price;
+        opt.textContent = prod.name + " - ৳" + prod.price;
+        select.appendChild(opt);
+    });
+
+    // START বাটন অ্যাকশন ফাংশন
+    function startApp() {
+        const audio = document.getElementById('cyberAudio');
+        audio.play().catch(error => console.log("Autoplay dynamic initialization context:", error));
+
+        const splash = document.getElementById('splash-screen');
+        const mainContent = document.getElementById('main-content');
+        
+        splash.style.opacity = '0';
+        splash.style.visibility = 'hidden';
+        
+        mainContent.style.display = 'block';
+        setTimeout(() => {
+            mainContent.style.opacity = '1';
+        }, 50);
+    }
+
+    function selectProduct(name, price) {
+        const checkoutSec = document.getElementById('checkout');
+        checkoutSec.style.display = 'block';
+        select.value = name + " - ৳" + price;
+        checkoutSec.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function sendOrder() {
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const selectedProd = select.value;
+        const trxid = document.getElementById('trxid').value;
+        const submitBtn = document.getElementById('submitBtn');
+
+        if (!name || !phone || !trxid) {
+            alert("অনুগ্রহ করে ফরমের সব তথ্য সঠিকভাবে পূরণ করুন।");
+            return;
+        }
+
+        submitBtn.innerText = "প্রসেসিং হচ্ছে...";
+        submitBtn.disabled = true;
+
+        const textMessage = "🔔 নতুন অর্ডার এসেছে!\n\n👤 নাম: " + name + "\n📱 ফোন: " + phone + "\n📦 প্রোডাক্ট: " + selectedProd + "\n🔑 TrxID: " + trxid;
+
+        const url = "https://api.telegram.org/bot" + TELEGRAM_BOT_TOKEN + "/sendMessage";
+        const params = {
+            chat_id: TELEGRAM_CHAT_ID,
+            text: textMessage
+        };
+
+        fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(params)
+        })
+        .then(response => {
+            if(response.ok) {
+                alert("আপনার অর্ডারটি সফলভাবে সাবমিট হয়েছে! খুব দ্রুত আপনার সাথে যোগাযোগ করা হবে।");
+                document.getElementById('orderForm').reset();
+                document.getElementById('checkout').style.display = 'none';
+            } else {
+                alert("মেসেজ পাঠাতে সমস্যা হয়েছে। দয়া করে কোডের ভেতরের Bot Token ও Chat ID চেক করুন।");
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("সার্ভার ত্রুটি! ব্যাকগ্রাউন্ডে ডাটা পাঠানো যায়নি।");
+        })
+        .finally(() => {
+            submitBtn.innerText = "কমপ্লিট পার্সেস";
+            submitBtn.disabled = false;
+        });
+    }
+</script>
+
+</body>
+  </html>
